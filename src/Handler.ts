@@ -10,14 +10,14 @@ export class Handler implements HandlerInterface {
 
   add(...args: Binding): this {
     const keys = args.slice(0, -1) as Sequence
-    const fn = args.at(-1) as Callback
+    const fn = args[args.length - 1] as Callback
     this.state = addBinding(this.state, keys, fn)
     return this
   }
 
   remove(...args: Binding): this {
     const keys = args.slice(0, -1) as Sequence
-    const fn = args.at(-1) as Callback
+    const fn = args[args.length - 1] as Callback
     this.state = removeBinding(this.state, keys, fn)
     return this
   }

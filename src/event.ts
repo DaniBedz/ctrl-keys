@@ -4,7 +4,7 @@ import {AliasCharacter, Character, EncodedKey, Key, KeyboardEventType, Modifier}
 
 export function createEvent(key: Key, type: KeyboardEventType = 'keydown') {
   const parts = normalizeKey(key) as Array<Character | Modifier>
-  let eventKey = parts.at(-1) as string
+  let eventKey = parts[parts.length - 1] as string
   if (aliases[eventKey as AliasCharacter] !== undefined) eventKey = aliases[eventKey as AliasCharacter]
   if (eventKey === 'ctrl') eventKey = 'Control'
   if (eventKey === 'alt') eventKey = 'Alt'

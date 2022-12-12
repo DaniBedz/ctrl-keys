@@ -48,7 +48,7 @@ export function disableSequence(state: State, sequence: Sequence): State {
 
 export function addEventToHistory(state: State, event: KeyboardEvent): State {
   const key = encodeEvent(event)
-  const previousKey = state.history.at(-1)
+  const previousKey = state.history[state.history.length - 1]
   if (shouldOverride(previousKey, key)) {
     state.history.pop()
   }
